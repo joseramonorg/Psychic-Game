@@ -26,9 +26,10 @@ var restart = function() {
 	guessesLeft = 9;
 	letterUser = [];
 	farUserGuesses();
+	countGuessesLeft();
 	computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)]
-}   
-	// En el renglón 29 no estoy cumpliendo con el DRY (DON'T repeat yourself, pero no ubico la forma de optimizarlo
+}  
+	// En el renglón 30 no estoy cumpliendo con el DRY (DON'T repeat yourself, pero no ubico la forma de optimizarlo
 	// Pensaba omitir la linea de código 29 pero no hacía el restart al 100, no generaba la nueva elección de la compu
 	// De tal forma que tuve que repetir la función para generala dentro de la función restart.
 	// Las siguientes lineas de código muestran las validaciones para no repetir ni poner numeros o simbolos.
