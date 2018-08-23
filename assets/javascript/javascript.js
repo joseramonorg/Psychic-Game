@@ -26,8 +26,13 @@ var restart = function() {
 	guessesLeft = 9;
 	letterUser = [];
 	farUserGuesses();
-}
-
+	computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)]
+}   
+	// En el renglón 29 no estoy cumpliendo con el DRY (DON'T repeat yourself, pero no ubico la forma de optimizarlo
+	// Pensaba omitir la linea de código 29 pero no hacía el restart al 100, no generaba la nueva elección de la compu
+	// De tal forma que tuve que repetir la función para generala dentro de la función restart.
+	// Las siguientes lineas de código muestran las validaciones para no repetir ni poner numeros o simbolos.
+	
 	var userGuess;
 
 document.onkeyup = function(event) {
@@ -47,17 +52,17 @@ document.onkeyup = function(event) {
 
 	}
 
-	
+	//User wins or user loses, with the alert that shows the option that the computer was thinking
 	if (userGuess === computerGuess){
 		wins++;
 		document.querySelector("#wins").innerHTML = "Wins: " + wins;
-		alert("You win!!!!!!!!!!!!!");
+		alert("You win!!!!!!!!!!!!!, the letter was " +userGuess);
 		restart();
 	} 
 	else if (guessesLeft === 0) {
 		losses++;
 		document.querySelector("#lose").innerHTML = "Loses: " + losses;
-		alert("Try again. You lose");
+		alert("Try again. You lose, the letter was " +computerGuess);
 		restart();
 	}
 
